@@ -171,8 +171,7 @@ A Oracle depreciou o SecurityManager no Java 17:
     “SecurityManager is deprecated and will be removed in a future release.”
     📚 JEP 411
 
-E ele foi removido no Java 18. Mas continua funcionando os parâmetros networkaddress, sem as feature do SecurityManager.
-
+E ele foi removido no Java 18. As propriedades networkaddress.cache.ttl e networkaddress.cache.negative.ttl continuam válidas no JDK 18, sem as feature do SecurityManager.
 
 Para Java 8 ou inferior (openjdk-8/jre/lib/security/java.security):
 ```text
