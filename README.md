@@ -239,6 +239,10 @@ Configure os parâmetros para forçar a JVM a revalidar os IPs:
 -Dnetworkaddress.cache.negative.ttl=0
 ```
 
+📚 Referência oficial:
+🔗 [Oracle Networking Properties Link icon](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/doc-files/net-properties.html)
+
+
 ---
 
 ## 📢 Por que usar Lettuce com Redis na AWS?
