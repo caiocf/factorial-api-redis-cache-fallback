@@ -14,7 +14,7 @@ spring:
       username: ${USERNAME_REDIS:appuser}
       password: ${PASSWORD_REDIS:senhaF0rte123}
       ssl:
-        enabled: false # Ativa conexão segura via SSL/TLS com o Redis
+        enabled: ${SSL_ENABLED_REDIS:false} # Ativa conexão segura via SSL/TLS com o Redis
       client-type: lettuce # Cliente usado para conexão (Lettuce é padrão e assíncrono)
       timeout: ${TIMEOUT_REDIS:200ms}  # conexão socket timeout, para comandos Redis (leitura/gravação)
       connect-timeout: ${CONNECT_TIMEOUT_REDIS:2s}  # explicita conexão ativa :contentReference[oaicite:3]{index=3}
@@ -35,7 +35,7 @@ spring:
 
 logging:
   level:
-    org.springframework.data.redis: debug
+    org.springframework.data.redis: INFO
 
 management:
   endpoints:
