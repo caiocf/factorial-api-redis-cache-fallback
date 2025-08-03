@@ -15,6 +15,7 @@ public class FatorialApiApplication {
 
     public static void main(String[] args) {
         log.info("===> Antes de aplicar:");
+        log.info("SecurityManager (Desativado no jdk 18 e superior) status = {} ",(System.getSecurityManager() != null ? "Ativo" : "Inativo"));
         log.info("networkaddress.cache.ttl = {}", java.security.Security.getProperty("networkaddress.cache.ttl"));
         log.info("networkaddress.cache.negative.ttl = {}", java.security.Security.getProperty("networkaddress.cache.negative.ttl"));
 
