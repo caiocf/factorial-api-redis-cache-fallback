@@ -167,6 +167,11 @@ Por padrão, a JVM mantém indefinidamente os IPs resolvidos por DNS em cache. I
 
 O valor null significa que o parâmetro não foi definido explicitamente, mas a JVM ainda aplicará um valor padrão interno (tipicamente 30s, ou infinito se houver SecurityManage
 
+A Oracle depreciou o SecurityManager no Java 17:
+    “SecurityManager is deprecated and will be removed in a future release.”
+    📚 JEP 411
+
+E ele foi removido no Java 18. Mas continua funcionando os parâmetros networkaddress, sem as feature do SecurityManager.
 
 
 Para Java 8 ou inferior (openjdk-8/jre/lib/security/java.security):
