@@ -1,0 +1,59 @@
+spring:
+  cache:
+    type: redis # Define o tipo de cache como Redis (usa Spring Cache abstração com Redis por baixo)
+    redis:
+      time-to-live: 60s
+      cache-null-values: false
+      use-key-prefix: true
+      key-prefix: "meu-cached-shared::"
+      enable-statistics: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      username: appuser
+      password: senhaF0rte123
+      ssl:
+        enabled: false # Ativa conexão segura via SSL/TLS com o Redis
+      client-type: lettuce # Cliente usado para conexão (Lettuce é padrão e assíncrono)
+      timeout: 200ms  # conexão socket timeout, para comandos Redis (leitura/gravação)
+      connect-timeout: 2s  # explicita conexão ativa :contentReference[oaicite:3]{index=3}
+      client-name: factorial-api-client
+
+      # https://redis.github.io/lettuce/user-guide/connecting-redis/
+      lettuce:
+        pool:
+          enabled: true # Ativa o uso de pool de conexões (recomendado em produção)
+          max-active: 50 # Conexões máximas
+          max-idle: 20 # Máximo de conexões ociosas
+          min-idle: 5 # Mínimo de conexões ociosas
+          max-wait: 2000ms     # Tempo de espera antes de falhar ao buscar conexão do pool
+          time-between-eviction-runs: 60000ms  # a cada 60s remove idle
+        shutdown-timeout: 1000ms # Tempo para desligar conexões graciosamente
+        #fixed-timeout: 300ms #  Tempo fixo p/ timeout em cada operação
+        #command-timeout: 300ms # Tempo máximo para execução de comandos
+
+logging:
+  level:
+    org.springframework.data.redis: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "info, health, metrics"
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true # correto: probes.enabled (não probles.enable)
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+    redis:
+      enabled: false
+
+
+

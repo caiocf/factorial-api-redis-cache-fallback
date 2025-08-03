@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:7
+    container_name: redis-server
+    ports:
+      - "6379:6379"
+    restart: always
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf", "--aclfile", "/usr/local/etc/redis/users.acl"]
+    volumes:
+      - redis-data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/users.acl:/usr/local/etc/redis/users.acl
+
+  #fatorial-api:
+  #  build: .
+  #  ports:
+  #    - "8080:8080"
+  #  environment:
+  #    - SPRING_PROFILES_ACTIVE=prod
+  #  depends_on:
+  #    - redis
+
+volumes:
+  redis-data:
